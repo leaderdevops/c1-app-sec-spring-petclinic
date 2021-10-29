@@ -1,5 +1,0 @@
-key = <KEY>
-secret = <SECRET>
-log_file = /appsec.log
-log_level = INFO
-defence.log_file = /defence.log

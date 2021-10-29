@@ -13,14 +13,28 @@ Application Security integration done via the provided Dockerfile
 
 First, clone the repo
 
-Then build and run the container
+```sh
+$ git clone https://github.com/mawinkler/c1-app-sec-spring-petclinic.git
+```
+
+Now, set your Application Security keys
 
 ```sh
-# Build the image
-DOCKER_BUILDKIT=1 docker build -t petclinic .
+$ # YOUR KEYS HERE
+$ export APPSEC_KEY=<your key>
+$ export APPSEC_SECRET=<your secret>
+$ # YOUR DOCKER HUB USERNAME (required for deploy.sh only)
+$ export DOCKER_USERNAME=<your username>
+```
 
-# Run the container
-docker run --rm -p 8080:8080 --name petclinic petclinic
+Then build and run the container, which you can do by running
+
+```sh
+$ # Run app on your local docker engine
+$ ./run.sh
+
+$ # Deploy app with a loadbalancer service on your current kubernetes context
+$ ./deploy.sh
 ```
 
 Demo Shellshock (ensure to have `Malicious Payload` enabled within the Application Security policy).

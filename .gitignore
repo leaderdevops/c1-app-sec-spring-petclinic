@@ -13,3 +13,4 @@ _site/
 .mvn
 logs/defence.log
 logs/appsec.log
+env.sh

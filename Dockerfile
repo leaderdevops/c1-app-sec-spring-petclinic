@@ -11,6 +11,8 @@ COPY --from=build /home/app/target/spring-petclinic-2.5.0-SNAPSHOT.jar /usr/loca
 ADD trend_app_protect-4.4.6.jar trend_app_protect-4.4.6.jar
 ADD trend_app_protect.properties trend_app_protect.properties
 
+RUN mkdir /var/log/appsec
+
 EXPOSE 8080
 
 ENTRYPOINT ["java","-javaagent:trend_app_protect-4.4.6.jar","-Dcom.trend.app_protect.config.file=trend_app_protect.properties","-jar","/usr/local/lib/spring-petclinic.jar"]
